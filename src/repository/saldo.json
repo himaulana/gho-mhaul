@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "name": "Michael Harryanto",
+    "saldo": 180000,
+    "input": [
+      {
+        "date": "2021-10-10",
+        "nominal": 100000
+      },
+      {
+        "date": "2025-01-24T15:12:30.732Z",
+        "nominal": "100000"
+      },
+      {
+        "date": "2025-01-24T15:15:56.082Z",
+        "nominal": 20000
+      },
+      {
+        "date": "2025-01-24T15:17:11.174Z",
+        "nominal": 100000
+      }
+    ],
+    "output": [
+      {
+        "description": "Beli Makanan",
+        "date": "2021-10-10",
+        "nominal": 100000
+      },
+      {
+        "description": "Sampoerna Mild Green",
+        "date": "2025-01-24T15:05:20.550Z",
+        "nominal": "37000"
+      },
+      {
+        "description": "Sampoerna Mild",
+        "date": "2025-01-24T15:11:59.619Z",
+        "nominal": "10000"
+      },
+      {
+        "description": "Sushi",
+        "date": "2025-01-24T15:16:42.413Z",
+        "nominal": 20000
+      }
+    ]
+  }
+]

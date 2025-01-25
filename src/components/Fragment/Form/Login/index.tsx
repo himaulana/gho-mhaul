@@ -8,17 +8,14 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import {
-  Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import { FormProvider } from 'react-hook-form';
+import { FormProvider, UseFormReturn } from 'react-hook-form';
 
 export function LoginForm({
   className,
@@ -27,7 +24,7 @@ export function LoginForm({
   ...props
 }: {
   className?: string;
-  form: any;
+  form: UseFormReturn<{ email: string; password: string }>;
   onSubmit: (values: { email: string; password: string }) => void;
 }) {
   return (

@@ -1,23 +1,13 @@
-import type { Metadata } from 'next';
-import localFont from 'next/font/local';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
+import { Poppins } from 'next/font/google';
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['100', '400', '700'],
+  display: 'swap',
+  variable: '--font-poppins',
 });
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
-});
-
-export const metadata: Metadata = {
-  title: 'Home | Gho Mhaul',
-  description: process.env.NEXT_PUBLIC_METADATA_DESCRIPTION,
-};
 
 export default function RootLayout({
   children,
@@ -27,10 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${poppins.className} antialiased bg-gradient-to-b from-blue-50 to-white min-h-screen`}
       >
         <Navbar />
-        <div className="mt-24 px-4">{children}</div>
+        <div className="px-4">{children}</div>
       </body>
     </html>
   );

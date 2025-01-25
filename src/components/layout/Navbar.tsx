@@ -3,7 +3,9 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Key, Menu, X } from 'lucide-react';
+import { Key, Menu, Unplug, X } from 'lucide-react';
+import { signOut, useSession } from 'next-auth/react';
+import { SessionProvider } from 'next-auth/react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +15,7 @@ export default function Navbar() {
   };
 
   return (
-    <>
+    <SessionProvider>
       <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 flex w-[90%] max-w-6xl items-center justify-between rounded-2xl bg-white/50 px-6 py-3 shadow-lg backdrop-blur-xl border border-slate-300/50">
         <ToogleMobileButton isOpen={isOpen} handleClick={onHandleClick} />
         <Logo />
@@ -30,7 +32,7 @@ export default function Navbar() {
       )}
 
       <MobileMenu isOpen={isOpen} handleClick={onHandleClick} />
-    </>
+    </SessionProvider>
   );
 }
 
@@ -43,9 +45,35 @@ const Logo = () => {
 };
 
 const SignInButton = () => {
+  const { data: session, status } = useSession();
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+
+  const handleSignOut = () => {
+    setIsLoggingOut(true);
+    setTimeout(() => {
+      signOut();
+    }, 300);
+  };
+
+  if (status === 'authenticated') {
+    return (
+      <div className="flex flex-row space-x-6 px-4 items-center justify-center">
+        <p className="text-sm font-semibold text-slate-900">
+          {session.user?.name}
+        </p>
+        <Unplug
+          className={`cursor-pointer text-red-600 hover:text-red-800 transition-opacity duration-300 ease-in-out ${
+            isLoggingOut ? 'opacity-0' : ''
+          }`}
+          onClick={handleSignOut}
+        />
+      </div>
+    );
+  }
+
   return (
-    <Link href={'/signin'}>
-      <Button className="flex items-center space-x-2 text-slate-900 bg-slate-200/70 backdrop-blur-md px-4 py-2 rounded-xl shadow-md hover:bg-slate-300 transition-all">
+    <Link href={'/auth/signin'}>
+      <Button className="flex items-center space-x-2 text-slate-900 bg-slate-200/70 backdrop-blur-md px-4 py-2 rounded-xl shadow-md hover:bg-slate-300 transition-all duration-300 ease-in-out transform hover:scale-105">
         <Key size={20} />
         <span className="hidden md:inline">Sign In</span>
       </Button>

@@ -1,46 +1,675 @@
 [
   {
-    "id": "1",
+    "id": 1,
     "name": "Michael Harryanto",
     "saldo": 180000,
     "input": [
       {
-        "date": "2021-10-10",
+        "id": 1001,
+        "date": "2021-10-10T08:00:00Z",
         "nominal": 100000
       },
       {
+        "id": 1002,
         "date": "2025-01-24T15:12:30.732Z",
         "nominal": "100000"
       },
       {
+        "id": 1003,
         "date": "2025-01-24T15:15:56.082Z",
         "nominal": 20000
       },
       {
+        "id": 1004,
         "date": "2025-01-24T15:17:11.174Z",
         "nominal": 100000
+      },
+      {
+        "id": 1005,
+        "date": "2025-01-24T15:25:00.000Z",
+        "nominal": 30000
+      },
+      {
+        "id": 1006,
+        "date": "2025-01-24T15:30:00.000Z",
+        "nominal": 50000
       }
     ],
     "output": [
       {
+        "id": 2001,
         "description": "Beli Makanan",
-        "date": "2021-10-10",
+        "date": "2021-10-10T08:30:00Z",
         "nominal": 100000
       },
       {
+        "id": 2002,
         "description": "Sampoerna Mild Green",
         "date": "2025-01-24T15:05:20.550Z",
         "nominal": "37000"
       },
       {
+        "id": 2003,
         "description": "Sampoerna Mild",
         "date": "2025-01-24T15:11:59.619Z",
         "nominal": "10000"
       },
       {
+        "id": 2004,
         "description": "Sushi",
         "date": "2025-01-24T15:16:42.413Z",
         "nominal": 20000
+      },
+      {
+        "id": 2005,
+        "description": "Beli Pulsa",
+        "date": "2025-01-24T15:20:00.000Z",
+        "nominal": "50000"
+      },
+      {
+        "id": 2006,
+        "description": "Makan Malam",
+        "date": "2025-01-24T15:22:00.000Z",
+        "nominal": "15000"
+      },
+      {
+        "id": 2007,
+        "description": "Makan Siang",
+        "date": "2025-01-24T15:24:00.000Z",
+        "nominal": "20000"
+      },
+      {
+        "id": 2008,
+        "description": "Sewa Ruang Meeting",
+        "date": "2025-01-24T15:28:00.000Z",
+        "nominal": "30000"
+      },
+      {
+        "id": 2009,
+        "description": "Transportasi",
+        "date": "2025-01-24T15:29:00.000Z",
+        "nominal": "25000"
+      },
+      {
+        "id": 2010,
+        "description": "Pajak",
+        "date": "2025-01-24T15:30:00.000Z",
+        "nominal": "40000"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Hera Nur Aini",
+    "saldo": 250000,
+    "input": [
+      {
+        "id": 3001,
+        "date": "2022-05-12T09:00:00Z",
+        "nominal": 50000
+      },
+      {
+        "id": 3002,
+        "date": "2025-01-20T10:23:00.123Z",
+        "nominal": "120000"
+      },
+      {
+        "id": 3003,
+        "date": "2025-01-22T11:30:12.321Z",
+        "nominal": 30000
+      }
+    ],
+    "output": [
+      {
+        "id": 4001,
+        "description": "Belanja Pakaian",
+        "date": "2022-05-12T09:30:00Z",
+        "nominal": 50000
+      },
+      {
+        "id": 4002,
+        "description": "Pulsa",
+        "date": "2025-01-20T12:34:45.213Z",
+        "nominal": "50000"
+      },
+      {
+        "id": 4003,
+        "description": "Makan Siang",
+        "date": "2025-01-22T13:01:10.324Z",
+        "nominal": "20000"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Adrian Setiawan",
+    "saldo": 120000,
+    "input": [
+      {
+        "id": 5001,
+        "date": "2023-08-25T10:00:00Z",
+        "nominal": 50000
+      },
+      {
+        "id": 5002,
+        "date": "2025-01-15T09:05:00.789Z",
+        "nominal": "70000"
+      }
+    ],
+    "output": [
+      {
+        "id": 6001,
+        "description": "Beli Gadget",
+        "date": "2023-08-25T10:30:00Z",
+        "nominal": 50000
+      },
+      {
+        "id": 6002,
+        "description": "Coffe Break",
+        "date": "2025-01-15T09:30:11.456Z",
+        "nominal": "30000"
+      },
+      {
+        "id": 6003,
+        "description": "Dinner",
+        "date": "2025-01-15T19:22:40.567Z",
+        "nominal": "20000"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Sandra M",
+    "saldo": 150000,
+    "input": [
+      {
+        "id": 6004,
+        "date": "2023-09-15T08:00:00Z",
+        "nominal": 50000
+      },
+      {
+        "id": 6005,
+        "date": "2024-12-12T10:23:00Z",
+        "nominal": "50000"
+      },
+      {
+        "id": 6006,
+        "date": "2025-01-10T11:00:00Z",
+        "nominal": "30000"
+      }
+    ],
+    "output": [
+      {
+        "id": 7001,
+        "description": "Makan Siang",
+        "date": "2023-09-15T08:30:00Z",
+        "nominal": 25000
+      },
+      {
+        "id": 7002,
+        "description": "Pulsa",
+        "date": "2024-12-12T10:30:00Z",
+        "nominal": "15000"
+      },
+      {
+        "id": 7003,
+        "description": "Belanja",
+        "date": "2025-01-10T11:30:00Z",
+        "nominal": "20000"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Siti Zahra",
+    "saldo": 200000,
+    "input": [
+      {
+        "id": 7004,
+        "date": "2023-03-01T10:00:00Z",
+        "nominal": 100000
+      },
+      {
+        "id": 7005,
+        "date": "2025-01-18T09:45:00Z",
+        "nominal": "120000"
+      }
+    ],
+    "output": [
+      {
+        "id": 8001,
+        "description": "Transportasi",
+        "date": "2023-03-01T10:30:00Z",
+        "nominal": "30000"
+      },
+      {
+        "id": 8002,
+        "description": "Belanja Pakaian",
+        "date": "2025-01-18T10:00:00Z",
+        "nominal": "40000"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Rina Pertiwi",
+    "saldo": 220000,
+    "input": [
+      {
+        "id": 8003,
+        "date": "2024-11-10T11:10:00Z",
+        "nominal": 60000
+      },
+      {
+        "id": 8004,
+        "date": "2025-01-05T14:20:00Z",
+        "nominal": "70000"
+      }
+    ],
+    "output": [
+      {
+        "id": 9001,
+        "description": "Makan Siang",
+        "date": "2024-11-10T11:40:00Z",
+        "nominal": "20000"
+      },
+      {
+        "id": 9002,
+        "description": "Makan Malam",
+        "date": "2025-01-05T14:50:00Z",
+        "nominal": "15000"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Fadli Pratama",
+    "saldo": 230000,
+    "input": [
+      {
+        "id": 9003,
+        "date": "2023-11-01T09:00:00Z",
+        "nominal": 70000
+      },
+      {
+        "id": 9004,
+        "date": "2025-01-10T12:10:00Z",
+        "nominal": 60000
+      }
+    ],
+    "output": [
+      {
+        "id": 10001,
+        "description": "Makan Pagi",
+        "date": "2023-11-01T09:15:00Z",
+        "nominal": "30000"
+      },
+      {
+        "id": 10002,
+        "description": "Pulsa",
+        "date": "2025-01-10T12:20:00Z",
+        "nominal": "20000"
+      },
+      {
+        "id": 10003,
+        "description": "Makan Malam",
+        "date": "2025-01-10T12:30:00Z",
+        "nominal": "25000"
+      },
+      {
+        "id": 10004,
+        "description": "Belanja",
+        "date": "2025-01-10T12:40:00Z",
+        "nominal": "35000"
+      },
+      {
+        "id": 10005,
+        "description": "Transportasi",
+        "date": "2025-01-10T12:50:00Z",
+        "nominal": "15000"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Dina Kusuma",
+    "saldo": 300000,
+    "input": [
+      {
+        "id": 10006,
+        "date": "2024-05-10T14:00:00Z",
+        "nominal": 120000
+      },
+      {
+        "id": 10007,
+        "date": "2025-01-15T11:30:00Z",
+        "nominal": 180000
+      }
+    ],
+    "output": [
+      {
+        "id": 11001,
+        "description": "Belanja Pakaian",
+        "date": "2024-05-10T14:10:00Z",
+        "nominal": "60000"
+      },
+      {
+        "id": 11002,
+        "description": "Pulsa",
+        "date": "2025-01-15T11:45:00Z",
+        "nominal": "40000"
+      },
+      {
+        "id": 11003,
+        "description": "Makan Siang",
+        "date": "2025-01-15T12:00:00Z",
+        "nominal": "25000"
+      },
+      {
+        "id": 11004,
+        "description": "Beli Gadget",
+        "date": "2025-01-15T12:15:00Z",
+        "nominal": "50000"
+      },
+      {
+        "id": 11005,
+        "description": "Transportasi",
+        "date": "2025-01-15T12:30:00Z",
+        "nominal": "10000"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Budi Santoso",
+    "saldo": 270000,
+    "input": [
+      {
+        "id": 11006,
+        "date": "2024-06-15T13:30:00Z",
+        "nominal": 90000
+      },
+      {
+        "id": 11007,
+        "date": "2025-01-10T14:45:00Z",
+        "nominal": 120000
+      }
+    ],
+    "output": [
+      {
+        "id": 12001,
+        "description": "Makan Siang",
+        "date": "2024-06-15T13:45:00Z",
+        "nominal": "30000"
+      },
+      {
+        "id": 12002,
+        "description": "Belanja",
+        "date": "2025-01-10T15:00:00Z",
+        "nominal": "40000"
+      },
+      {
+        "id": 12003,
+        "description": "Transportasi",
+        "date": "2025-01-10T15:15:00Z",
+        "nominal": "20000"
+      },
+      {
+        "id": 12004,
+        "description": "Pakaian",
+        "date": "2025-01-10T15:30:00Z",
+        "nominal": "30000"
+      },
+      {
+        "id": 12005,
+        "description": "Coffe Break",
+        "date": "2025-01-10T15:45:00Z",
+        "nominal": "15000"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Tina Melati",
+    "saldo": 210000,
+    "input": [
+      {
+        "id": 12006,
+        "date": "2024-08-12T13:00:00Z",
+        "nominal": 70000
+      },
+      {
+        "id": 12007,
+        "date": "2025-01-12T10:00:00Z",
+        "nominal": 140000
+      }
+    ],
+    "output": [
+      {
+        "id": 13001,
+        "description": "Belanja Pakaian",
+        "date": "2024-08-12T13:10:00Z",
+        "nominal": "25000"
+      },
+      {
+        "id": 13002,
+        "description": "Pulsa",
+        "date": "2025-01-12T10:30:00Z",
+        "nominal": "20000"
+      },
+      {
+        "id": 13003,
+        "description": "Makan Siang",
+        "date": "2025-01-12T10:45:00Z",
+        "nominal": "30000"
+      },
+      {
+        "id": 13004,
+        "description": "Transportasi",
+        "date": "2025-01-12T11:00:00Z",
+        "nominal": "15000"
+      },
+      {
+        "id": 13005,
+        "description": "Makan Malam",
+        "date": "2025-01-12T11:15:00Z",
+        "nominal": "25000"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Rudy Arman",
+    "saldo": 260000,
+    "input": [
+      {
+        "id": 13006,
+        "date": "2024-07-20T12:00:00Z",
+        "nominal": 80000
+      },
+      {
+        "id": 13007,
+        "date": "2025-01-08T15:00:00Z",
+        "nominal": 180000
+      }
+    ],
+    "output": [
+      {
+        "id": 14001,
+        "description": "Makan Siang",
+        "date": "2024-07-20T12:15:00Z",
+        "nominal": "20000"
+      },
+      {
+        "id": 14002,
+        "description": "Beli Gadget",
+        "date": "2025-01-08T15:10:00Z",
+        "nominal": "50000"
+      },
+      {
+        "id": 14003,
+        "description": "Makan Malam",
+        "date": "2025-01-08T15:20:00Z",
+        "nominal": "30000"
+      },
+      {
+        "id": 14004,
+        "description": "Pulsa",
+        "date": "2025-01-08T15:30:00Z",
+        "nominal": "15000"
+      },
+      {
+        "id": 14005,
+        "description": "Transportasi",
+        "date": "2025-01-08T15:40:00Z",
+        "nominal": "10000"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Sophie Aprilia",
+    "saldo": 350000,
+    "input": [
+      {
+        "id": 14006,
+        "date": "2024-09-25T16:00:00Z",
+        "nominal": 120000
+      },
+      {
+        "id": 14007,
+        "date": "2025-01-18T16:20:00Z",
+        "nominal": 230000
+      }
+    ],
+    "output": [
+      {
+        "id": 15001,
+        "description": "Pulsa",
+        "date": "2024-09-25T16:30:00Z",
+        "nominal": "20000"
+      },
+      {
+        "id": 15002,
+        "description": "Transportasi",
+        "date": "2025-01-18T16:40:00Z",
+        "nominal": "25000"
+      },
+      {
+        "id": 15003,
+        "description": "Makan Siang",
+        "date": "2025-01-18T16:50:00Z",
+        "nominal": "30000"
+      },
+      {
+        "id": 15004,
+        "description": "Belanja",
+        "date": "2025-01-18T17:00:00Z",
+        "nominal": "50000"
+      },
+      {
+        "id": 15005,
+        "description": "Makan Malam",
+        "date": "2025-01-18T17:10:00Z",
+        "nominal": "35000"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Arianto Rizky",
+    "saldo": 220000,
+    "input": [
+      {
+        "id": 15006,
+        "date": "2024-03-15T11:00:00Z",
+        "nominal": 95000
+      },
+      {
+        "id": 15007,
+        "date": "2025-01-22T17:30:00Z",
+        "nominal": 130000
+      }
+    ],
+    "output": [
+      {
+        "id": 16001,
+        "description": "Pulsa",
+        "date": "2024-03-15T11:15:00Z",
+        "nominal": "20000"
+      },
+      {
+        "id": 16002,
+        "description": "Belanja",
+        "date": "2025-01-22T17:45:00Z",
+        "nominal": "40000"
+      },
+      {
+        "id": 16003,
+        "description": "Makan Siang",
+        "date": "2025-01-22T17:55:00Z",
+        "nominal": "25000"
+      },
+      {
+        "id": 16004,
+        "description": "Transportasi",
+        "date": "2025-01-22T18:05:00Z",
+        "nominal": "15000"
+      },
+      {
+        "id": 16005,
+        "description": "Makan Malam",
+        "date": "2025-01-22T18:15:00Z",
+        "nominal": "20000"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Lina Anggraeni",
+    "saldo": 300000,
+    "input": [
+      {
+        "id": 16006,
+        "date": "2024-04-25T10:00:00Z",
+        "nominal": 130000
+      },
+      {
+        "id": 16007,
+        "date": "2025-01-23T10:10:00Z",
+        "nominal": 170000
+      }
+    ],
+    "output": [
+      {
+        "id": 17001,
+        "description": "Makan Siang",
+        "date": "2024-04-25T10:15:00Z",
+        "nominal": "30000"
+      },
+      {
+        "id": 17002,
+        "description": "Transportasi",
+        "date": "2025-01-23T10:30:00Z",
+        "nominal": "20000"
+      },
+      {
+        "id": 17003,
+        "description": "Belanja",
+        "date": "2025-01-23T10:45:00Z",
+        "nominal": "50000"
+      },
+      {
+        "id": 17004,
+        "description": "Pakaian",
+        "date": "2025-01-23T10:50:00Z",
+        "nominal": "25000"
+      },
+      {
+        "id": 17005,
+        "description": "Makan Malam",
+        "date": "2025-01-23T10:55:00Z",
+        "nominal": "25000"
       }
     ]
   }

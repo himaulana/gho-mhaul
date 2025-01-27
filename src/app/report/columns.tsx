@@ -2,14 +2,14 @@
 
 import { ColumnDef } from '@tanstack/react-table';
 
-export type Report = {
+export type TransactionType = {
   id: number;
   date: Date;
-  nominal: number;
+  amount: number;
   description?: string;
 };
 
-export const columns: ColumnDef<Report>[] = [
+export const columns: ColumnDef<TransactionType>[] = [
   {
     header: 'ID',
     accessorKey: 'id',
@@ -29,7 +29,7 @@ export const columns: ColumnDef<Report>[] = [
     },
   },
   {
-    header: 'Pukul',
+    header: 'Jam',
     accessorKey: 'time',
     cell: ({ row }) => {
       const dateValue: Date = row.getValue('date');
@@ -37,17 +37,16 @@ export const columns: ColumnDef<Report>[] = [
         ? new Intl.DateTimeFormat('id-ID', {
             hour: '2-digit',
             minute: '2-digit',
-            second: '2-digit',
             hour12: false,
           }).format(new Date(dateValue))
         : '-';
     },
   },
   {
-    header: 'Nominal',
-    accessorKey: 'nominal',
+    header: 'Harga',
+    accessorKey: 'amount',
     cell: ({ row }) => {
-      const nominalValue: number = row.getValue('nominal');
+      const nominalValue: number = row.getValue('amount');
       return new Intl.NumberFormat('id-ID', {
         style: 'currency',
         currency: 'IDR',

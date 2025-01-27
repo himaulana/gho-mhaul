@@ -24,7 +24,7 @@ export function LoginForm({
   ...props
 }: {
   className?: string;
-  form: UseFormReturn<{ email: string; password: string }>;
+  form: UseFormReturn<{ email?: string; password?: string }>;
   onSubmit: (values: { email: string; password: string }) => void;
 }) {
   return (

@@ -2,58 +2,54 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { DataTable } from '@/components/Fragment/Table';
+import Select from '@/components/Element/Select';
 import { columns } from './columns';
 import { useEffect, useState } from 'react';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
+import { TransactionType } from '@/types/transactions';
+import { UserType } from '@/types/users';
 
-interface Transaction {
-  id: number;
-  date: Date;
-  nominal: number;
-  description?: string;
-}
-
-interface UserType {
-  id: number;
-  name: string;
-  saldo: number;
-  input: Transaction[];
-  output: Transaction[];
-}
-
-interface InitialType {
+export interface InitialType {
   users: UserType[];
-  data: UserType;
+  transactions: {
+    income: TransactionType[];
+    expense: TransactionType[];
+  };
 }
 
 export default function TabsComponent({ initial }: { initial: InitialType }) {
-  const [data, setData] = useState<UserType>(initial.data);
-  const [idUser, setIdUser] = useState<number>(initial.data.id);
+  const [data, setData] = useState(initial.transactions);
+  const [userId, setUserId] = useState<number>(initial.users[0]?.id);
 
   useEffect(() => {
     const fetchData = async () => {
-      if (idUser) {
+      if (userId) {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/saldo?id=${idUser}`
+          `${process.env.NEXT_PUBLIC_API_URL}/api/transactions/${userId}`
         );
         const { data } = await response.json();
-        setData(data);
+
+        const income: TransactionType[] = [];
+        const expense: TransactionType[] = [];
+
+        data.forEach((item: TransactionType) => {
+          if (item.category === 'INCOME') {
+            income.push(item);
+          } else {
+            expense.push(item);
+          }
+        });
+
+        setData({ income, expense });
       }
     };
 
     fetchData();
-  }, [idUser]);
+  }, [userId]);
 
   return (
     <div className="flex flex-col space-y-6">
       <Tabs defaultValue="output" className="w-full">
-        <div className="flex flex-col md:flex-row justify-center md:justify-between items-center space-y-4 md:space-y-0 md:space-x-4 mb-6">
+        <div className="flex flex-col md:flex-row justify-center md:justify-between items-center space-y-8 md:space-y-0 md:space-x-4 mb-6">
           <TabsList className="flex space-x-4 w-full md:w-auto">
             <TabsTrigger
               value="output"
@@ -69,8 +65,14 @@ export default function TabsComponent({ initial }: { initial: InitialType }) {
             </TabsTrigger>
           </TabsList>
 
-          <div className="w-full md:w-[180px]">
-            <SelectUser users={initial.users} onSelect={setIdUser} />
+          <div className="w-full md:w-[200px]">
+            <Select
+              data={initial.users}
+              keyName="id"
+              valueName="name"
+              defaultValue={userId}
+              onSelect={(value) => setUserId(Number(value))}
+            />
           </div>
         </div>
 
@@ -79,7 +81,7 @@ export default function TabsComponent({ initial }: { initial: InitialType }) {
             <h2 className="text-xl font-semibold mb-4 text-gray-700">
               Pengeluaran
             </h2>
-            <DataTable columns={columns} data={data.output} />
+            <DataTable columns={columns} data={data.expense} />
           </Card>
         </TabsContent>
 
@@ -88,7 +90,7 @@ export default function TabsComponent({ initial }: { initial: InitialType }) {
             <h2 className="text-xl font-semibold mb-4 text-gray-700">
               Pemasukan
             </h2>
-            <DataTable columns={columns} data={data.input} />
+            <DataTable columns={columns} data={data.income} />
           </Card>
         </TabsContent>
       </Tabs>
@@ -101,28 +103,5 @@ const Card = ({ children }: { children: React.ReactNode }) => {
     <div className="bg-gradient-to-br from-white to-gray-100 p-6 rounded-xl shadow-xl hover:shadow-2xl transition-all">
       {children}
     </div>
-  );
-};
-
-const SelectUser = ({
-  users,
-  onSelect,
-}: {
-  users: UserType[];
-  onSelect: (id: number) => void;
-}) => {
-  return (
-    <Select onValueChange={(value) => onSelect(Number(value))}>
-      <SelectTrigger className="w-full bg-gray-50 border-none rounded-md">
-        <SelectValue placeholder="Select User" />
-      </SelectTrigger>
-      <SelectContent>
-        {users.map((user) => (
-          <SelectItem key={user.id} value={user.id.toString()}>
-            {user.name}
-          </SelectItem>
-        ))}
-      </SelectContent>
-    </Select>
   );
 };

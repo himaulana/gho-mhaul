@@ -4,26 +4,32 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Key, Menu, Unplug, X } from 'lucide-react';
-import { signOut, useSession } from 'next-auth/react';
-import { SessionProvider } from 'next-auth/react';
+import { signOut } from 'next-auth/react';
+import { Session } from 'next-auth';
 
-export default function Navbar() {
+export default function Navbar({ session }: { session: Session | null }) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const navItems = [
+    { name: 'Home', href: '/' },
+    { name: 'Payment', href: '/payment' },
+    { name: 'Report', href: '/report' },
+    { name: 'Mitra', href: '/mitra' },
+  ];
 
   const onHandleClick = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <SessionProvider>
+    <>
       <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 flex w-[90%] max-w-6xl items-center justify-between rounded-2xl bg-white/50 px-6 py-3 shadow-lg backdrop-blur-xl border border-slate-300/50">
         <ToogleMobileButton isOpen={isOpen} handleClick={onHandleClick} />
         <Logo />
-        <DesktopMenu />
-        <SignInButton />
+        <BrowserMenu navItems={navItems} />
+        <SignInButton session={session} />
       </nav>
 
-      {/* Overlay untuk Menutup Dropdown Saat Diklik */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40"
@@ -31,8 +37,12 @@ export default function Navbar() {
         />
       )}
 
-      <MobileMenu isOpen={isOpen} handleClick={onHandleClick} />
-    </SessionProvider>
+      <MobileMenu
+        isOpen={isOpen}
+        handleClick={onHandleClick}
+        navItems={navItems}
+      />
+    </>
   );
 }
 
@@ -44,8 +54,7 @@ const Logo = () => {
   );
 };
 
-const SignInButton = () => {
-  const { data: session, status } = useSession();
+const SignInButton = ({ session }: { session: Session | null }) => {
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   const handleSignOut = () => {
@@ -55,7 +64,7 @@ const SignInButton = () => {
     }, 300);
   };
 
-  if (status === 'authenticated') {
+  if (session) {
     return (
       <div className="flex flex-row space-x-6 px-4 items-center justify-center">
         <p className="text-sm font-semibold text-slate-900">
@@ -101,9 +110,11 @@ const ToogleMobileButton = ({
 const MobileMenu = ({
   isOpen,
   handleClick,
+  navItems,
 }: {
   isOpen: boolean;
   handleClick: () => void;
+  navItems: Record<string, string>[];
 }) => {
   return (
     <div
@@ -114,11 +125,7 @@ const MobileMenu = ({
       }`}
     >
       <ul className="flex flex-col space-y-3 p-6 text-slate-700 text-md font-medium">
-        {[
-          { name: 'Home', href: '/' },
-          { name: 'Payment', href: '/payment' },
-          { name: 'Report', href: '/report' },
-        ].map((item) => (
+        {navItems.map((item) => (
           <li key={item.name}>
             <Link
               href={item.href}
@@ -134,14 +141,10 @@ const MobileMenu = ({
   );
 };
 
-const DesktopMenu = () => {
+const BrowserMenu = ({ navItems }: { navItems: Record<string, string>[] }) => {
   return (
     <ul className="hidden md:flex space-x-8 text-slate-700 text-sm font-medium">
-      {[
-        { name: 'Home', href: '/' },
-        { name: 'Payment', href: '/payment' },
-        { name: 'Report', href: '/report' },
-      ].map((item) => (
+      {navItems.map((item) => (
         <li key={item.name} className="group relative">
           <Link
             href={item.href}
